@@ -34,3 +34,10 @@ python manage.py migrate
 ```
 python3 manage.py runserver
 ```
+
+#### Generar mock data inicial
+
+```
+>python manage.py shell < seed_data.py
+
+```

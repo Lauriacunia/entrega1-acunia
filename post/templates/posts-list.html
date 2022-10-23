@@ -1,18 +1,17 @@
-<div class="is-flex is-justify-content-center">
+<div class="is-flex is-justify-content-center" style="flex-wrap: wrap;">
     {% for post in posts %}
-    <article class="media m-5"> 
+    <article class="media m-5" style="width: 700px"> 
         <figure class="media-left">
             <p class="image is-64x64">
-                <img src="https://bulma.io/images/placeholders/128x128.png">
+                <img src={{post.thumbnail}}>
             </p>
         </figure>
         <div class="media-content">
             <div class="content">
                 <p>
-                    <strong>John Smith</strong> <small>@johnsmith</small> <small>31m</small>
+                    <strong>{{post.title}}</strong> <small>{{post.author}}</small> <small>{{post.date_posted}}</small>
                     <br>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor
-                    vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.
+                    {{post.content}}
                 </p>
             </div>
             <nav class="level is-mobile">
