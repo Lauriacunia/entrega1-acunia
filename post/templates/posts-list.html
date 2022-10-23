@@ -1,0 +1,30 @@
+<div class="is-flex is-justify-content-center">
+    {% for post in posts %}
+    <div class="card m-5" style="width: 230px">
+        <div class="card-image">
+            <figure class="image is-4by3">
+                <img src={{post.thumbnail}} alt="Placeholder image">
+            </figure>
+        </div>
+        <div class="card-content">
+            <div class="media">
+                <div class="media-left">
+                    <figure class="image is-48x48">
+                        <img src={{post.thumbnail}} alt="Placeholder image">
+                    </figure>
+                </div>
+                <div class="media-content">
+                    <p class="title is-4">{{post.name}}</p>
+                    <p class="subtitle is-6">{{post.birth_date}}</p>
+                </div>
+            </div>
+
+            <div class="content has-text-justified">
+                {{ post.description}}
+                <br>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+
+</div>
