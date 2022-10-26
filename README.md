@@ -9,6 +9,12 @@
 - [x] Django 4.1.2
 - [x] SQLite
 
+#### Deploy - GLITCH
+https://glitch.com/edit/#!/level-trusted-sweatshirt
+correr en terminal 
+```
+python3 manage.py runserver
+```
 #### Instalación
 
 - Si lo desea puede crear un entorno virtual y activarlo
