@@ -11,7 +11,7 @@
 
 #### Deploy - GLITCH
 https://glitch.com/edit/#!/level-trusted-sweatshirt
-correr en terminal 
+- correr en terminal 
 ```
 python3 manage.py runserver
 ```
