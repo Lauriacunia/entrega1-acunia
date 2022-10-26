@@ -1,6 +1,7 @@
 # CandyCode Blog Project
 
 ##### Proyecto fullstack realizado con Django 4.1.2.
+
 ##### Blog con posteos sobre tecnología y desarrollo de software.
 
 #### Tecnologías:
@@ -39,5 +40,4 @@ python3 manage.py runserver
 
 ```
 >python manage.py shell < seed_data.py
-
 ```
