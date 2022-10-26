@@ -1,5 +1,5 @@
 from django import forms
-from django.forms import TextInput, FileInput
+from django.forms import ImageField, TextInput, FileInput
 
 from ..models import Post
 
@@ -19,6 +19,7 @@ class PostForm(forms.ModelForm):
             'content': TextInput(attrs={'class': 'textarea is-primary m-5 is-medium',
                                         'placeholder': 'type your content here'
                                         }),
+            
         }
 
 

@@ -5,7 +5,7 @@ from .forms.forms import PostForm
 # Create your views here.
 
 def showHome(request):
-    posts = Post.objects.all()
+    posts = Post.objects.all().order_by('-date_posted')
     return render(request, 'home.html', {'posts': posts, 'path': 'media/'})
 
 def newPost(request):
