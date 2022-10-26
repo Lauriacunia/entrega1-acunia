@@ -19,7 +19,7 @@
         </div>
     </div>
     <div class="container" style="width: 70%;">
-        <form method="POST">
+        <form method="POST"  enctype="multipart/form-data">
             {% csrf_token %}
             {{ form.as_p }}
             <button type="submit" class="button is-primary m-5">Save</button>
