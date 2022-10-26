@@ -1,10 +1,9 @@
 <div class="is-flex is-justify-content-center" style="flex-wrap: wrap;">
     {% for post in posts %}
     <article class="media m-5" style="width: 700px"> 
-        <figure class="media-left">
-            <p class="image is-64x64">
+        <figure class="image is-128x128 media-left">
+
                 <img src={{path}}{{post.thumbnail}}>
-            </p>
         </figure>
         <div class="media-content">
             <div class="content">
@@ -25,8 +24,11 @@
                     <a class="level-item">
                         <span class="icon is-small"><i class="fas fa-heart"></i></span>
                     </a>
+                    
                 </div>
+                <button class="button is-link is-light is-small is-outlined">Read more</button>
             </nav>
+
         </div>
     </article>
     {% endfor %}
