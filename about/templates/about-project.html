@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@6.9.96/css/materialdesignicons.min.css">
+    <title>About</title>
+</head>
+
+<body>
+    {% include 'navbar.html' %}
+    <div class="container" style="display:flex; justify-content: space-around; align-items: center;">
+        <div style="display:flex; width: 550px; margin-top: 50px;">
+            <img src="../../media/about-candy-code.gif" alt="hero image">
+        </div>
+        <div style="margin-left: 50px;">
+            <h1 class="title" style="margin-top: 50px;">About this project</h1>
+            <p class="subtitle" ">This project is a blog where you can write and edit posts about technology and software development.</p>
+            <div style="display:flex; justify-content: space-between;">
+                <div style="margin-left: 50px;">
+                    <p style="margin-bottom: 20px;">Things you can do:</p>
+                    <ul>
+                        <li>🔸Register User</li>
+                        <li>🔸Login User</li>
+                        <li>🔸Logout User</li>
+                        <li>🔸Write posts</li>
+                        <li>🔸Upload a picture for every Post</li>
+                        <li>🔸Edit posts</li>
+                        <li>🔸Delete posts</li>
+                        <li>🔸Search posts by any topic</li>
+                    </ul>
+                </div>
+                <div style="margin-right: 150px;">
+                    <p style="margin-bottom: 20px;">Technologies used:</p>
+                    <ul>
+                        <li>🔸Python</li>
+                        <li>🔸Django</li>
+                        <li>🔸HTML</li>
+                        <li>🔸CSS</li>
+                        <li>🔸Bulma</li>
+                        <li>🔸SQLite</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div style="margin-top: 50px;">
+                <a href="https://github.com/Lauriacunia/entrega1-acunia" target="_blank"><span class="icon mdi mdi-github"></span> View on Github</a>
+            </div>
+            
+        </div>
+    </div>
+    
+</body>
+
+</html>
