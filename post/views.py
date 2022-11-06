@@ -30,4 +30,31 @@ class CreatePost(CreateView):
 
 
 
+class MyPostList(ListView):
+    model = Post
+    template_name = 'my_account.html'
+    context_object_name = 'posts'
+    ordering = ['-date_posted']
 
+    #def get_queryset(self):
+        #return Post.objects.filter(author=self.request.user)
+
+class EditPost(UpdateView):
+    model = Post
+    template_name = 'edit.html'
+    form_class = PostForm
+    context_object_name = 'post'
+
+    def get(self, request, pk):
+        post = Post.objects.get(pk=pk)
+        form = PostForm(instance=post)
+        return render(request, self.template_name, {'form': form, 'post': post})
+        
+    def post(self, request, pk):
+        post = Post.objects.get(pk=pk)
+        form = PostForm(request.POST, request.FILES, instance=post)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.save()
+            return redirect('all_posts')
+        return render(request, self.template_name, {'form': form, 'post': post})

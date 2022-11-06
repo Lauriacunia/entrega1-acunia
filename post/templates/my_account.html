@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+<div class="container mb-6 mt-6">
+    <div class="notification is-primary">
+        Edit your <strong>stories</strong>.
+    </div>
+</div>
+
+<div class="is-flex is-justify-content-center" style="flex-wrap: wrap;">
+        {% for post in posts %}
+        <div class="card notification is-info" style="width: 850px;">
+            <div class="card-content" style="padding:0px;">
+                <p class="is-size-4">
+                    {{post.title}}
+                </p>
+                <p class="is-size-6">
+                   <small>{{post.date_posted}}</small>
+                </p>
+            </div>
+            <footer class="card-footer" style="display: flex; justify-content:flex-end; padding: 0px;">
+                <button class="button is-info is-light m-2">Edit</button>
+            </footer>
+        </div>
+        {% endfor %}
+    
+</div>
+
+{% endblock %}
