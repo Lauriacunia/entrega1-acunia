@@ -62,7 +62,9 @@ ROOT_URLCONF = 'candycode.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        # loader va a buscar en la carpeta templates de la raiz del proyecto, 
+        # si no encuentra el file alli va a buscar en la carpeta templates de cada app
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
