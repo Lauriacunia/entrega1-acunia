@@ -1,8 +1,8 @@
 from django.contrib import admin
 from django.urls import path
-from post.views import showHome, newPost
+from post.views import PostList, CreatePost
 
 urlpatterns = [
-    path('', showHome, name='home'),
-    path('post/new', newPost, name='newpost'),
+    path('', PostList.as_view(), name='all_posts'),
+    path('new/', CreatePost.as_view(), name='new_post'),
 ]
