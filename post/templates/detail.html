@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+<div class="container">
+    <div class="notification is-primary mt-6">
+        <h1 class="is-size-4"> <strong>Let's read</strong>.</h1>
+        
+    </div>
+    <form action="{% url 'all_posts' %}">
+        <button class="button is-link is-light is-small is-outlined" type="submit">Back to Home</button>
+    </form>
+    
+</div>
+
+{% endblock %}

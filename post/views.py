@@ -1,5 +1,5 @@
 from django.views import View 
-from django.views.generic import ListView, CreateView, DeleteView, UpdateView 
+from django.views.generic import ListView, CreateView, DeleteView, UpdateView, DetailView
 from django.shortcuts import redirect, render
 from post.models import Post
 from .forms.forms import PostForm
@@ -58,3 +58,7 @@ class EditPost(UpdateView):
             post.save()
             return redirect('all_posts')
         return render(request, self.template_name, {'form': form, 'post': post})
+    
+class DetailPost(DetailView):
+    model=Post
+    template_name: str = 'detail.html'
