@@ -13,50 +13,61 @@
 </head>
 
 <body>
+    <!-- <form method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+        <div>
+            <button class="button is-primary">Sign Up</button>
+        </div>
+        
+    </form> -->
 
     <div class="container is-flex is-justify-content-center" style="width:800px; margin-top: 100px;">
         <div style="width: 50%; margin-right: 30px;">
-            <div class="field">
-                <label class="label">Username</label>
-                <div class="control has-icons-left has-icons-right">
-                    <input class="input is-info" type="text" placeholder="Username" >
-                    <span class="icon is-small is-left">
-                        <i class="fas fa-user"></i>
-                    </span>
+            <form method="POST" action="/register">
+                {% csrf_token %}
+                <div class="field">
+                    <label class="label">Username</label>
+                    <div class="control has-icons-left has-icons-right">
+                        {{form.username}}
+                        <span class="icon is-small is-left">
+                            <i class="fas fa-user"></i>
+                        </span>
+                    </div>
+                
                 </div>
-               
-            </div>
-            
-            <div class="field">
-                <label class="label">Email</label>
-                <div class="control has-icons-left has-icons-right">
-                    <input class="input is-info" type="email" placeholder="Email">
-                    <span class="icon is-small is-left">
-                        <i class="fas fa-envelope"></i>
-                    </span>
+                
+                <div class="field">
+                    <label class="label">Email</label>
+                    <div class="control has-icons-left has-icons-right">
+                        {{form.email}}
+                        <span class="icon is-small is-left">
+                            <i class="fas fa-envelope"></i>
+                        </span>
+                    </div>
                 </div>
-            </div>
-            <div class="field">
-                <label class="label">Password</label>
-                <p class="control has-icons-left">
-                    <input class="input is-info" type="password" placeholder="Password">
-                    <span class="icon is-small is-left">
-                        <i class="fas fa-lock"></i>
-                    </span>
-                </p>
-            </div>
-            <div class="field">
-                <label class="label">Confirm Password</label>
-                <p class="control has-icons-left">
-                    <input class="input is-info" type="password" placeholder="Confirm Password">
-                    <span class="icon is-small is-left">
-                        <i class="fas fa-lock"></i>
-                    </span>
-                </p>
-            </div>
-            <div class="control">
-                <button class="button is-primary">Sign Up</button>
-            </div>
+                <div class="field">
+                    <label class="label">Password</label>
+                    <div class="control has-icons-left">
+                        <input class="input is-link" type="password" name="password1">
+                        <span class="icon is-small is-left">
+                            <i class="fas fa-lock"></i>
+                        </span>
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">Confirm Password</label>
+                    <div class="control has-icons-left">
+                        <input class="input is-link" type="password" name="password2">
+                        <span class="icon is-small is-left">
+                            <i class="fas fa-lock"></i>
+                        </span>
+                    </div>
+                </div>
+                <div class="control">
+                    <button class="button is-primary">Sign Up</button>
+                </div>
+            </form>
         </div>
         <div class="tile is-parent is-vertical">
             <article class="tile is-child notification is-primary" style="display:flex; flex-direction:column; justify-content:space-between">
