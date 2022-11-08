@@ -11,6 +11,8 @@ from django.contrib.auth import authenticate, login, logout
 class RegisterUser(View):
       
     def get(self, request):
+        if request.user.is_authenticated:
+            return redirect('all_posts')
         form = CreateUserForm()
         return render(request, 'register.html', {'form': form})
 
@@ -27,6 +29,8 @@ class RegisterUser(View):
 
 class LoginUser(View):
     def get(self, request):
+        if request.user.is_authenticated:
+            return redirect('all_posts')
         return render(request, 'login.html')
 
     def post(self, request):

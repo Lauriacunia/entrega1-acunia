@@ -3,7 +3,7 @@ from django.views.generic import ListView, CreateView, DeleteView, UpdateView, D
 from django.shortcuts import redirect, render
 from post.models import Post
 from .forms.forms import PostForm
-
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 class PostList(ListView):
     model = Post
@@ -11,7 +11,9 @@ class PostList(ListView):
     context_object_name = 'posts'
     ordering = ['-date_posted']
 
-class CreatePost(CreateView):
+
+
+class CreatePost(LoginRequiredMixin, CreateView):
     model = Post
     template_name = 'write.html'
     form_class = PostForm
@@ -30,7 +32,7 @@ class CreatePost(CreateView):
 
 
 
-class MyPostList(ListView):
+class MyPostList(LoginRequiredMixin,ListView):
     model = Post
     template_name = 'my_account.html'
     context_object_name = 'posts'
@@ -39,7 +41,7 @@ class MyPostList(ListView):
     #def get_queryset(self):
         #return Post.objects.filter(author=self.request.user)
 
-class EditPost(UpdateView):
+class EditPost(LoginRequiredMixin,UpdateView):
     model = Post
     template_name = 'edit.html'
     form_class = PostForm

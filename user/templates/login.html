@@ -48,8 +48,11 @@
                     </p>
                 </div>
             
-                <div class="control mt-6">
+                <div class="control mt-6 is-flex is-justify-content-space-between">
                     <button class="button is-primary">Sign In</button>
+                    
+                    <button id="cancel" type="button" cancel" class="button is-danger ml-6 is-outlined">Cancel</button>
+                    
                 </div>
             </form>
             <div  class="mt-6" style="text-align:right">
@@ -58,6 +61,12 @@
         </div>
         
     </div>
+    <script type="text/javascript">
+        document.getElementById("cancel").onclick = function () {
+            console.log("cancel")
+            location.href = "{% url 'all_posts' %}";
+        };
+    </script>
 </body>
 
 </html>
