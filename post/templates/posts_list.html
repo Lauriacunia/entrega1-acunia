@@ -27,7 +27,10 @@
                     </a>
                     
                 </div>
-                <button class="button is-link is-light is-small is-outlined">Read more</button>
+                <form action="{% url 'detail_post' post.id %}">
+                    <button class="button is-link is-light is-small is-outlined" type="submit">Read more</button>
+                </form>
+                
             </nav>
 
         </div>
