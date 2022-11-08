@@ -1,9 +1,10 @@
 from django.views import View 
 from django.views.generic import ListView, CreateView, DeleteView, UpdateView, DetailView
 from django.shortcuts import redirect, render
+from candycode.settings import LOGIN_URL
 from post.models import Post
 from .forms.forms import PostForm
-
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 class PostList(ListView):
     model = Post
@@ -11,10 +12,13 @@ class PostList(ListView):
     context_object_name = 'posts'
     ordering = ['-date_posted']
 
-class CreatePost(CreateView):
+
+
+class CreatePost(LoginRequiredMixin, CreateView):
     model = Post
     template_name = 'write.html'
     form_class = PostForm
+    login_url: 'LOGIN_URL'
 
     def get(self, request):
         form = PostForm()
@@ -30,20 +34,23 @@ class CreatePost(CreateView):
 
 
 
-class MyPostList(ListView):
+class MyPostList(LoginRequiredMixin,ListView):
     model = Post
     template_name = 'my_account.html'
     context_object_name = 'posts'
     ordering = ['-date_posted']
+    login_url: 'LOGIN_URL'
 
     #def get_queryset(self):
         #return Post.objects.filter(author=self.request.user)
 
-class EditPost(UpdateView):
+class EditPost(LoginRequiredMixin,UpdateView):
     model = Post
     template_name = 'edit.html'
     form_class = PostForm
     context_object_name = 'post'
+    login_url: 'LOGIN_URL'
+
 
     def get(self, request, pk):
         post = Post.objects.get(pk=pk)
