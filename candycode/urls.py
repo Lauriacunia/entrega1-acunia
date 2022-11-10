@@ -19,6 +19,7 @@ from django.urls import include, path
 from django.conf.urls.static import static
 from user.views import RegisterUser, LoginUser, LogoutUser
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('post.urls')),
@@ -26,7 +27,7 @@ urlpatterns = [
     path('register', RegisterUser.as_view(), name='register'),
     path('login', LoginUser.as_view(), name='login'),
     path('logout', LogoutUser.as_view(), name='logout'),
-
+    path('user', include('user.urls')),
 ]
 
 if settings.DEBUG:

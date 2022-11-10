@@ -3,10 +3,11 @@ from django.views import View
 from django.contrib.auth.forms import UserCreationForm
 from django import forms
 from django.contrib.auth.models import User
-from .forms.forms import CreateUserForm
+from .forms.forms import CreateUserForm, EditUserForm
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
-
+from django.views.generic import UpdateView
+from django.urls import reverse_lazy
 
 class RegisterUser(View):
       
@@ -52,4 +53,10 @@ class LogoutUser(View):
         logout(request)
         return redirect('all_posts')
 
-        
+
+class UpdateUser(UpdateView):
+    model = User
+    template_name = 'settings.html'
+    success_url = reverse_lazy('all_posts')
+    form_class = EditUserForm
+   

@@ -21,7 +21,7 @@
             </a>
 
             <a href="{% url 'my_account' %}" class="navbar-item">
-                My account
+                My Posts
             </a>
 
             <div class="navbar-item has-dropdown is-hoverable">
@@ -58,6 +58,8 @@
             <div class="navbar-item">
                 <div class="buttons">
                     <p class=" is-size-5">Hello, <strong>{{ request.user}}</strong> !</p>
+                    <a style="margin-left: 20px;font-size:30px; " href="{% url 'settings' request.user.id %}"><span
+                            class="icon mdi mdi-account-cog"></span></a>
                     <a class="button is-danger is-outlined ml-6" href="{% url 'logout' %}">
                         Log out
                     </a>
