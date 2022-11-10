@@ -52,4 +52,11 @@ class LogoutUser(View):
         logout(request)
         return redirect('all_posts')
 
-        
+
+class SettingsUser(View):
+    
+    def get(self, request):
+        return render(request, 'settings.html')
+
+    def post(self, request):
+        return redirect('settings')
