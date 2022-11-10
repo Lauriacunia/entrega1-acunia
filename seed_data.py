@@ -1,9 +1,12 @@
 from post.models import Post
 from django.contrib.auth.models import User
 
-user_1 = User.objects.get(id=1)
-user_2 = User.objects.get(id=2)
-user_3 = User.objects.get(id=3)
+User(username='lau', password='user_pass1', email='lau@gmail.com').save()
+User(username='mica', password='user_pass2', email='mica@gmail.com').save()
+User(username='jose', password='user_pass3', email='jose@gmail.com').save()
+user_1 = User.objects.get(username='lau')
+user_2 = User.objects.get(username='mica')
+user_3 = User.objects.get(username='jose')
 
 Post(title='Salary of a SQL Data Engineer', content='Data Engineers have always had to be familiar with relational SQL databases, but with newer data analytics platforms that even offer data integration and machine learning via SQL, more and more Data Engineers are focusing on this programming language. Is this paying off?', author= user_1, thumbnail='images/1.jpeg').save()
 Post(title='Top 5 reasons why developers love Rust programming language', content='Rust is one of the few modern languages that has found a place in the industry where programmers are able to create code that is used by actual businesses. Let’s take a look at the things that make coding in Rust so appealing to programmers.', author= user_2, thumbnail='images/2.png').save()

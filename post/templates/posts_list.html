@@ -12,8 +12,11 @@
                 <p style="margin:0px; padding:0px;"> <small><strong>{{post.author.username}}</strong></small> <small>{{post.date_posted}}</small> 
                 </p>
                 <br>
-                <!-- {{post.summary}} -->
+                {% if post.content|length >= 150 %}
+                {{post.content |truncatechars:150}}
+                {% else %}
                 {{post.content}}
+                {% endif %}
             </div>
             <nav class="level is-mobile is-flex is-justify-content-right">
                

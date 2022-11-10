@@ -64,8 +64,8 @@ class MyPostList(LoginRequiredMixin,ListView):
     ordering = ['-date_posted']
     login_url: 'LOGIN_URL'
 
-    #def get_queryset(self):
-        #return Post.objects.filter(author=self.request.user)
+    def get_queryset(self):
+        return Post.objects.filter(author=self.request.user).order_by('-date_posted')
 
 class EditPost(LoginRequiredMixin,UpdateView):
     model = Post
