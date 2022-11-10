@@ -9,9 +9,10 @@
                 <p  style="margin:0px; padding:0px;">
                     <strong>{{post.title}}</strong> 
                 </p>
-                <p style="margin:0px; padding:0px;"> <small>{{post.author}}</small> <small>{{post.date_posted}}</small> 
+                <p style="margin:0px; padding:0px;"> <small><strong>{{post.author.username}}</strong></small> <small>{{post.date_posted}}</small> 
                 </p>
                 <br>
+                <!-- {{post.summary}} -->
                 {{post.content}}
             </div>
             <nav class="level is-mobile is-flex is-justify-content-right">
