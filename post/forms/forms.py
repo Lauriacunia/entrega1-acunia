@@ -19,6 +19,9 @@ class PostForm(forms.ModelForm):
             'content': TextInput(attrs={'class': 'textarea is-primary m-5 is-medium',
                                         'placeholder': 'type your content here'
                                         }),
+            # 'summary': TextInput(attrs={'class': 'textarea is-primary m-5 is-medium',
+            #                             'placeholder': 'type your summary here'
+            #                             }),
             
         }
 

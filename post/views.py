@@ -14,6 +14,7 @@ class PostList(ListView):
     ordering = ['-date_posted']
 
     def get(self, request, *args, **kwargs):
+        print(Post.objects.all())
         if request.GET.get('search'):
             filtered_posts = Post.objects.filter(title__icontains=request.GET.get('search')).order_by('-date_posted')
             if filtered_posts:
@@ -44,9 +45,13 @@ class CreatePost(LoginRequiredMixin, CreateView):
         
     def post(self, request):
         form = PostForm(request.POST, request.FILES)
+        user = request.user
+        
         if form.is_valid():
             post = form.save(commit=False)
+            post.author = user
             post.save()
+            
             return redirect('all_posts')
         return render(request, self.template_name, {'form': form})
 
@@ -59,8 +64,8 @@ class MyPostList(LoginRequiredMixin,ListView):
     ordering = ['-date_posted']
     login_url: 'LOGIN_URL'
 
-    #def get_queryset(self):
-        #return Post.objects.filter(author=self.request.user)
+    def get_queryset(self):
+        return Post.objects.filter(author=self.request.user).order_by('-date_posted')
 
 class EditPost(LoginRequiredMixin,UpdateView):
     model = Post
