@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.urls import path
-from post.views import PostList, CreatePost, MyPostList, EditPost, DetailPost
+from post.views import PostList, CreatePost, MyPostList, EditPost, DetailPost, SearchPostByName
 
 urlpatterns = [
     path('', PostList.as_view(), name='all_posts'),

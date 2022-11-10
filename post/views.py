@@ -5,6 +5,7 @@ from candycode.settings import LOGIN_URL
 from post.models import Post
 from .forms.forms import PostForm
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib import messages
 
 class PostList(ListView):
     model = Post
@@ -12,7 +13,24 @@ class PostList(ListView):
     context_object_name = 'posts'
     ordering = ['-date_posted']
 
+    def get(self, request, *args, **kwargs):
+        if request.GET.get('search'):
+            filtered_posts = Post.objects.filter(title__icontains=request.GET.get('search')).order_by('-date_posted')
+            if filtered_posts:
+                 return render(request, 'base_posts.html', {'posts': filtered_posts, 'is_filtered': True})
+            else:
+                messages.error(request, 'Sorry, No posts found')
+                return render(request, self.template_name, {'posts': Post.objects.all().order_by('-date_posted')})
+           
+        else:
+            return super().get(request, *args, **kwargs)
 
+    
+
+class SearchPostByName(ListView):
+    def get_queryset(self):
+        post_title = self.request.GET.get('post-title')
+        return Post.objects.filter(title__icontains=post_title)
 
 class CreatePost(LoginRequiredMixin, CreateView):
     model = Post
