@@ -12,9 +12,11 @@ class PostList(ListView):
     template_name = 'base_posts.html'
     context_object_name = 'posts'
     ordering = ['-date_posted']
+    paginate_by: int = 2
+    
 
     def get(self, request, *args, **kwargs):
-        print(Post.objects.all())
+
         if request.GET.get('search'):
             filtered_posts = Post.objects.filter(title__icontains=request.GET.get('search')).order_by('-date_posted')
             if filtered_posts:
