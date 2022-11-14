@@ -12,7 +12,7 @@ class PostList(ListView):
     template_name = 'base_posts.html'
     context_object_name = 'posts'
     ordering = ['-date_posted']
-    paginate_by: int = 2
+    paginate_by: int = 5
     
 
     def get(self, request, *args, **kwargs):

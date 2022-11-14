@@ -8,6 +8,18 @@
 </div>
 
 <div class="is-flex is-justify-content-center" style="flex-wrap: wrap;">
+        {% if not post %} 
+        <div>
+            <div style="width: 350px; ">
+                <img src="../../media/not-post.gif" alt="hero image">
+            </div>
+            <div>
+                <form action="{% url 'new_post' %}" class="mt-6">
+                    <button class="button is-link is-light is-small is-outlined" type="submit">Go to Write</button>
+                </form>
+            </div>
+        </div>
+        {% endif %}    
         {% for post in posts %}
         <div class="card notification is-info" style="width: 850px;">
             <div class="card-content" style="padding:0px;">
