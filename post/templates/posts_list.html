@@ -18,12 +18,10 @@
                 {{post.content}}
                 {% endif %}
             </div>
-            <nav class="level is-mobile is-flex is-justify-content-right">
-               
+            <nav class="level is-mobile is-flex is-justify-content-right"> 
                 <form action="{% url 'detail_post' post.id %}">
                     <button class="button is-link is-light is-small is-outlined" type="submit">Read more</button>
-                </form>
-                
+                </form>    
             </nav>
 
         </div>
