@@ -20,4 +20,4 @@ Post(title='7 Best GitHub Repositories To Become a Better Programmer', content='
 Post(title='10 Developments Tools That Every Software Developer Must Try', content='Do you want to learn about the best programming tools? This article will satisfy you completely. Programming tools are actually software used to build, edit, maintain, support, and debug an application.', author=user_3, thumbnail='images/10.jpeg').save()
 
 
-print('📚 Se han creado algunos post iniciales ')
+print('📚 Se han creado algunos usuarios y post iniciales ')
