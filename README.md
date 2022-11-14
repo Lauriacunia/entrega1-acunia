@@ -7,12 +7,6 @@
   <img src="https://user-images.githubusercontent.com/63796774/201350918-f0d2f0e6-6c6a-4009-8f76-a9baf998ad64.gif">
 </p>
 
-#### Deploy - GLITCH
-https://glitch.com/edit/#!/level-trusted-sweatshirt
-- correr en terminal 
-```
-python3 manage.py runserver
-```
 
 ## Funcionalidades:
 
