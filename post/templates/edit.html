@@ -5,8 +5,18 @@
     <div class="notification is-primary">
         Edit your <strong>story</strong>.
     </div>
+    <div class="container" style="width: 70%;">
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="button is-primary m-5">Save</button>
+        </form>
+    </div>
+    <div>
+        <form action="{% url 'all_posts' %}" class="mt-6">
+            <button class="button is-link is-light is-small is-outlined" type="submit">Back to Home</button>
+        </form>
+    </div>
 </div>
-<div class="container" style="width: 70%;">
-    <div>estas son mis historias</div>
-</div>
+
 {% endblock %}

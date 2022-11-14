@@ -6,13 +6,14 @@ from post.models import Post
 from .forms.forms import PostForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib import messages
+from django.urls import reverse_lazy
 
 class PostList(ListView):
     model = Post
     template_name = 'base_posts.html'
     context_object_name = 'posts'
     ordering = ['-date_posted']
-    paginate_by: int = 2
+    paginate_by: int = 3
     
 
     def get(self, request, *args, **kwargs):
@@ -91,6 +92,13 @@ class EditPost(LoginRequiredMixin,UpdateView):
             return redirect('all_posts')
         return render(request, self.template_name, {'form': form, 'post': post})
     
+
+class DeletePost(LoginRequiredMixin,DeleteView):
+    model = Post
+    template_name = 'post_confirm_delete.html'
+    success_url = reverse_lazy("all_posts")
+    login_url: 'LOGIN_URL'
+
 class DetailPost(DetailView):
-    model=Post
+    model= Post
     template_name: str = 'detail.html'
